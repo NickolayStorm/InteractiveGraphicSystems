@@ -183,13 +183,29 @@ class Point:
         return "("+str(self.x)+", "+str(self.y)+")"
 
 
+class Vertex:
+    def __init__(self, p):
+        self.p = p
+
+    def get_normal(self):
+        pass
+
+    def add_polygon_normal(self):
+        pass
+
+
 # Класс-полигон
 class Polygon:
     def __init__(self, a, b, c):
-        self.a, self.b, self.c = a, b, c
+        self.a = Vertex(a)
+        self.b = Vertex(b)
+        self.c = Vertex(c)
 
     def convertion_two_dim(self):
         return (self.a.convert_to_2d(),
                 self.b.convert_to_2d(),
                 self.c.convert_to_2d())
 
+    @property
+    def vertices(self):
+        return list(self.a, self.b, self.c)
