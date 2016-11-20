@@ -193,6 +193,9 @@ class Vertex:
     def add_polygon_normal(self):
         pass
 
+    def __getattr__(self, name):
+        return getattr(self.p, name)
+
 
 # Класс-полигон
 class Polygon:
